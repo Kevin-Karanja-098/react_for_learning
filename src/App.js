@@ -1,20 +1,19 @@
 import React,{useState} from "react";
 
 function App(){
-  const counter= () =>{
     const [counter, setCounter] = useState(0);
 
-    const addCount = ()=>{
+    const addCount = () => {
       setCounter(counter + 1);
     };
 
-    const subtractCount =()=>{
+    const subtractCount = ()=> {
       setCounter(counter-1);
     };
-  };
+  
   return (
     <div>
-      <h1> The add and reduce buttons</h1>
+      <h1> The new value is:{counter} buttons</h1>
       <button onClick={addCount}>addCount</button>
       <button onClick={subtractCount}>subtractCount</button>
     </div>
