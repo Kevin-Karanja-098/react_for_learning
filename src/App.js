@@ -2,28 +2,37 @@ import React, { useState } from "react";
 import Name from "./Child";
 
 function AddAge(props){
-const [age, setAge] =useState(props.age);
 
-const add = () => {
-  setAge(prevAge => prevAge + 1);
-};
+
 return (
     <div>
-      <h1> The new age is:{age}</h1>
-      <button onClick={add}>addCount</button>
+      <h1> The new age is:{props.age}</h1>
     </div>
   )
 }
 
 function App(){
-   const person = {firstName:"John", lastName:"Doe", age:50, eyeColor:"blue"};  
-   return (
-    <div>
-      <h1>The his eyeColor is:{person.eyeColor}</h1>
-      <AddAge age={person.age}/>
-      <Name firstName={person.firstNamed}/>
-    </div>
-   )
-}
+
+  const [name, setName]=useState('Kevin');
+  const handleChange = (event) => {
+      setName(event.target.value);
+      };
+  
+  const [age, setAge] = useState(50);
+  const add = () => {
+    setAge(prevAge => prevAge + 1);
+      };
+  
+  return (
+      <div>
+        <h1>The his eyeColor is Blue</h1>
+        <AddAge age={age}/>
+        <button onClick={add}>addCount</button>
+        <Name name={name}/>
+        <label htmlFor="search">Give the name: </label>
+        <input id="search" type="text" onChange={handleChange} />
+      </div>
+    )
+  }
 
 export  default App
